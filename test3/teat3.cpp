@@ -28,32 +28,14 @@ int main() {
 	}
 	for (int l = 0,k = len2 - 1; k >= 0; k--,l++) {
 		for (int i = len1 - 1; i >= 0; i--) {
-			ten = big[i] * small[k] + carry;
-			if (ten >=10) {
-				carry = ten / 10;
-				one = ten % 10;
-				result[l][j] = one;
-			}
-			else {
-				carry = 0;
-				result[l][j] = ten;
-			}
+			ten = big[i] * small[k];
+			result[l][j] = ten;
 			j++;
 		}
-		
-		result[l][j] = carry;
 		j = 0;
 		tem++;
 		j = tem;
-		carry = 0;
 	}
-	for (int i = 0; i < len2; i++) {
-		for (int j = 0; j < len1 + len2; j++) {
-			printf("%d ", result[i][j]);
-		}
-		printf("\n");
-	}
-	
 	for (int j = 0; j < len1 + len2; j++) {
 		tem = 0;
 		for (int i = 0; i < len2; i++) {
